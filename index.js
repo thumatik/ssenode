@@ -12,8 +12,13 @@ app.get('/events', (req, res) => {
 
   res.write('Hello Ram');
 
+  var clientId = 0;
+
   const sendEvent = () => {
-    const data = `data: ${new Date().toISOString()}\n\n`;
+    clientId = parseInt(clientId) + 1;
+    if (parseInt(clientId) === 3) clientId = 0;
+    //const data = `data: ${new Date().toISOString()}\n\n`;
+    const data = `data: ClientId-${clientId}|${new Date().toISOString()}\n\n`;
     res.write(data);
   };
 
