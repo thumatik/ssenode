@@ -10,8 +10,6 @@ app.get('/events', (req, res) => {
   res.setHeader('Connection', 'keep-alive');
   res.flushHeaders();
 
-  res.write('Hello Ram');
-
   var clientId = 0;
 
   const sendEvent = () => {
