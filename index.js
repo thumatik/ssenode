@@ -16,9 +16,32 @@ app.get('/events', (req, res) => {
 
   const sendEvent = () => {
     clientId = parseInt(clientId) + 1;
-    if (parseInt(clientId) === 3) clientId = 0;
+    if (parseInt(clientId) === 5) clientId = 0;
     //const data = `data: ${new Date().toISOString()}\n\n`;
-    const data = `data: ClientId-${clientId}|${new Date().toISOString()}\n\n`;
+    var clientIs = '';
+    switch(clientId) {
+      case 0: {
+        clientIs = 'Mike';
+        break;
+      }
+      case 1: {
+        clientIs = 'Krishna';
+        break;
+      }
+      case 2: {
+        clientIs = 'Rima';
+        break;
+      }
+      case 3: {
+        clientIs = 'Fatma';
+        break;
+      }
+      case 4: {
+        clientIs = 'Maha';
+        break;
+      }
+    }
+    const data = `data: ClientId-${clientIs}|${new Date().toISOString()}\n\n`;
     res.write(data);
   };
 
